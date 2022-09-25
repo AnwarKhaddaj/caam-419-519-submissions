@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{listings}
+
+\title{CAAM 519, Homework $\#1$: \LaTeX ~Submission}
+\author{\texttt{ask15}}
+\date{September 7, 2022}
+\begin{document}
+\maketitle
+\section{Communicating with remote machines via ssh}
+
+\begin{verbatim}
+1) root@Anwar-PC:~/caam-419-519-submissions/homework-1# ssh ask15@ssh.clear.rice.edu
+
+2) Warning: Permanently added the ECDSA host key for IP address 
+'128.42.124.180' to the list of known hosts.
+The Rice University Network - Unauthorized access is prohibited
+Password:
+Duo two-factor login for ask15
+
+Enter a passcode or select one of the following options:
+
+ 1. Duo Push to +XXX XX XXX 025
+ 2. SMS passcodes to +XXX XX XXX 025
+
+Passcode or option (1-2): 1
+Success. Logging you in...
+The Rice University Network
+ ===========================
+ Unauthorized use is prohibited.
+
+ This computer system is for authorized users only.  Individuals using this
+ system without authority or in excess of their authority are subject to
+ having all their activities on this system monitored and recorded or
+ examined by any authorized person, including law enforcement, as system
+ personnel deem appropriate.  In the course of monitoring individuals
+ improperly using the system or in the course of system maintenance, the
+ activities of authorized users may also be monitored and recorded.  Any
+ material so recorded may be disclosed as appropriate.  Anyone using this
+ system consents to these terms.
+
+ Problems and/or questions should be submitted via the problem tracking
+ system form: http://helpdesk.rice.edu
+
+CURRENT USAGE AND LOAD ON THE COMPUTE NODES:
+  Sun Sep 25 10:30:01 CDT 2022
+
+ System                         # Users         Load ( 5, 10, 15 minute)
+   agate.clear.rice.edu             0             0.08, 0.07, 0.05
+   amber.clear.rice.edu             2             0.02, 0.04, 0.05
+   cobalt.clear.rice.edu            0             0.09, 0.04, 0.05
+   jade.clear.rice.edu              0             0.03, 0.04, 0.05
+   onyx.clear.rice.edu              0             0.04, 0.10, 0.12
+   opal.clear.rice.edu              0             1.27, 1.06, 0.91
+   pyrite.clear.rice.edu            0             0.02, 0.02, 0.05
+
+NOTE: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+   Please log an RT ticket for any issues you may have.
+
+   Please log a ticket at https://help.rice.edu if you have any of the following:
+     Feel documentation is lacking.
+     Have trouble getting into the system.
+     Feel the system is missing a tool.
+
+   NOTE: If you don't have a home drive when using Clear, please
+         create a ticket in help.rice.edu  Be sure to put
+         "need clear home directory" in the subject and one will
+         be setup for you. Include your Course (dept and number) or
+         a faculty sponsor if not for a course.
+
+   NOTE: If you see "id: cannot find name for group ID <Number>" at
+         login, you can safely ignore this and move on with your work.
+
+   FACULTY: Please help us pre-populate home drives for your class.
+         Provide us with your course number in an RT ticket like Note above.
+
+   NOTE: rclone added to clear. More information on kb.rice.edu soon.
+
+   NOTE: ghc (haskell) updated on clear. Run "PATH=$PATH:/clear/apps/ghc/bin" to use.
+
+   CLEAR NEWS -- https://kb.rice.edu/internal/page.php?id=71856
+   Tips and Hints -- https://kb.rice.edu/internal/page.php?id=71857
+
+
+/usr/bin/id: cannot find name for group ID 72392
+
+3)[ask15@pyrite ~]$ echo $HOSTNAME
+Output of this command: pyrite.clear.rice.edu
+\end{verbatim}
+
+\section{A script to build a LaTeX document while hiding auxiliary files}
+
+The below code does the following:
+
+Line 1 has a she-bang('shabang') to make it a shell script (bash in specific). We can use other shells but bash is used here. This is identified by /bin/bash.
+
+Line 2-4 check if a hidden .build directory doesn't exist. If it doesn't exist, it creates one. If it exists, the if statement's condition is not satisfied, and the code continues to the following lines. This is done to avoid printing a warning message in case the .build directory exists.
+
+Line 5 moves the .tex file to the hidden .build directory. It is important to note that \$1 takes the first argument as the name of the project .tex file.
+
+Line 6 changes the current working directory into the .build directory.
+
+Line 7 compiles the .tex file using pdflatex.
+
+Line 8 moves the pdf output file as well as the original .tex file back into the previous overarching directory.
+
+This is done in order to keep the auxiliary files in the .build directory as requested. One might wonder why I did this ``roundabout'' if we know that the auxiliary files are .log and .aux. However, those 2 auxiliary files might not be just 2 files for any .tex file. We might encounter other auxiliary files so this is a general method to overcome this issue.
+
+\begin{lstlisting}[language=bash, basicstyle=\ttfamily, caption={Shell script of Part 1}]
+  #!/bin/bash
+  if [ ! -d ``.build'' ]; then
+  mkdir .build
+  fi
+  mv $1.tex .build
+  cd .build
+  pdflatex $1.tex
+  mv $1.pdf $1.tex ..
+\end{lstlisting}
+
+Critique of code:
+
+No code is perfect, and no code solves all issues at once. My code solves the one specific task of keeping ONLY the auxiliary files in the .build directory as requested. Here are some issues my code doesn't necessarily solve:
+
+1) Since my code only moves the .tex file into the .build directory, any other files (such as images, bibtex, etc.) won't be included, so the code will fail to compile the .tex file (specifically line 7).
+
+2) Another wild issue is that the .build directory that already existed doesn't have read, write or execute permissions. Although that might be unlikely, it might still be possible especially if users are from a different group (in this way, we need to give group permissions). Thus, the code will fail at line 6 as we won't be able to set the .build directory to be the current working directory.
+
+3) Also, if the user doesn't know that he shouldn't include the file extension as an argument to the shell script when running it, the code will fail as now the file name will be \$1.tex.tex.
+
+4) Finally, a small issue arises if the same file name exists in the .build directory. Although the code won't fail at any point, we will lose the information of the previous file as the file is overwritten (line 5).
+\end{document}
