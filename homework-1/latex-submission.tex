@@ -108,7 +108,7 @@ This is done in order to keep the auxiliary files in the .build directory as req
 
 \begin{lstlisting}[language=bash, basicstyle=\ttfamily, caption={Shell script of Part 1}]
   #!/bin/bash
-  if [ ! -d ``.build'' ]; then
+  if [ ! -d ".build" ]; then
   mkdir .build
   fi
   mv $1.tex .build
