@@ -79,6 +79,7 @@ As the timestep size decreases, the error decreases as expected because we are n
 
 \section*{Section 3: Analyzing the efficiency of your solver (Part 3)}
 \subsection*{1}
+Euler's method
 \begin{jllisting}
 
   MethodInstance for (::var''#solve##kw'')(::NamedTuple{(:num_saved_steps,), Tuple{Int64}}, ::typeof(solve), ::ForwardEuler, ::Matrix{Float64}, ::typeof(rhs!), ::Tuple{Int64, Int64}, ::Float64, ::Float64)
@@ -115,7 +116,7 @@ As the timestep size decreases, the error decreases as expected because we are n
   5 ┄ %16 = Main.:(var"#solve#6")(num_saved_steps, @_3, method, u0, rhs!, tspan, dt, parameters)::Tuple{Matrix{Float64}, Int64}
   └──       return %16
 \end{jllisting}
-\\
+Explicit Method
 \begin{jllisting}
   MethodInstance for (::var''#solve##kw'')(::NamedTuple{(:num_saved_steps,), Tuple{Int64}}, ::typeof(solve), ::ExplicitMidpoint{Matrix{Float64}}, ::Matrix{Float64}, ::typeof(rhs!), ::Tuple{Int64, Int64}, ::Float64, ::Float64)
   from (::var''#solve##kw'')(::Any, ::typeof(solve), method::ExplicitMidpoint, u0, rhs!, tspan, dt, parameters) in Main at c:\Users\Anwar Khaddage\Documents\Julia VS\Juliademo-\part_1.jl:47
