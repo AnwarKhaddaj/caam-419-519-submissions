@@ -45,7 +45,7 @@ it can return nothing or tuple.*
 + Tagged properly with a “homework-2” tag (-5)
 ```=5```
 ##  ** Grade Miscellaneous**
-```=45/50```
+```=10/10```
 
 # **Total**
 ```=95/100```
