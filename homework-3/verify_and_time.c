@@ -33,17 +33,14 @@ int main(void){
   DiagonalMatrix* D=DiagonalMatrix_copy(A);
   printf("Running Diagonal Matrix...");
   print_DiagonalMatrix(D);
-  free_DiagonalMatrix(D);
 
   UpperTriangularMatrix* U= UpperTriangularMatrix_copy(A);
   printf("Running Upper Triangular Matrix...");
   print_UpperTriangularMatrix(U);
-  free_UpperTriangularMatrix(U);
 
   TridiagonalMatrix* T= TridiagonalMatrix_copy(A);
   printf("Running Tridiagonal Matrix...");
   print_TridiagonalMatrix(T);
-  free_TridiagonalMatrix(T);
 
   Matrix * D1=allocate_Matrix(n,n);
   for (int i=0;i<D1->n;++i){
