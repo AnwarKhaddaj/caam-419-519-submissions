@@ -29,7 +29,6 @@ int main(void){
     x->ptr[j] = (double)j;
   }
 
-
   DiagonalMatrix* D=DiagonalMatrix_copy(A);
   printf("Running Diagonal Matrix...");
   print_DiagonalMatrix(D);
@@ -53,8 +52,7 @@ int main(void){
         }
     }
   }
-    //
-  print_Matrix(D1);
+
   Matrix * U1=allocate_Matrix(n,n);
   for (int i = 0; i < A->n; ++i){
       for (int j = 0; j < A->n; ++j){
