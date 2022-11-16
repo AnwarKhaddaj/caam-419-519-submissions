@@ -3,7 +3,7 @@
 #include "matrix.h"
 #include "upperdiagonal.h"
 
-void free_UpperTriangularatrix(UpperTriangularMatrix *A){
+void free_UpperTriangularMatrix(UpperTriangularMatrix *A){
   free(A->ptr);  
 }
 
