@@ -56,7 +56,8 @@ int main(void){
         }
     }
   }
-
+    //
+  print_Matrix(D1);
   Matrix * U1=allocate_Matrix(n,n);
   for (int i = 0; i < A->n; ++i){
       for (int j = 0; j < A->n; ++j){
