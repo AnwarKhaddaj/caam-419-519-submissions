@@ -17,4 +17,4 @@ void print_TridiagonalMatrix(TridiagonalMatrix* A);
 TridiagonalMatrix* allocate_TridiagonalMatrix(int n);
 TridiagonalMatrix* TridiagonalMatrix_copy(Matrix* A);
 void free_TridiagonalMatrix(TridiagonalMatrix* A);
-void multiply_Tridiagonal_Matrix_Vector(Vector* out,TridiagonalMatrix* A, Vector* x);
+void multiply_TridiagonalMatrix_Vector(Vector* out,TridiagonalMatrix* A, Vector* x);
