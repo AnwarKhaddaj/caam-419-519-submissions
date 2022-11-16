@@ -28,10 +28,10 @@ int main(void){
     print_UpperTriangularMatrix(U);
   free_UpperTriangularMatrix(U);
 
-  UpperTridiagonalMatrix* T= UpperTridiagonalMatrix_copy(A);
+  TridiagonalMatrix* T= TridiagonalMatrix_copy(A);
   printf("Running Tridiagonal Matrix...");
-    print_UpperTridiagonalMatrix(T);
-  free_UpperTridiagonalMatrix(T);
+    print_TridiagonalMatrix(T);
+  free_TridiagonalMatrix(T);
 
 }
 
