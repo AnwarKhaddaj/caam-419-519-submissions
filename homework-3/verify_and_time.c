@@ -164,20 +164,20 @@ int main(void){
  //Freeing all allocated memory
 
   free_Matrix(A);
-  //free_DiagonalMatrix(D);
+  free_DiagonalMatrix(D);
   free_Matrix(D1);
-  //free_UpperTriangularMatrix(U);
-  //free_Matrix(U1);
-  //free_TridiagonalMatrix(T);
-  //free_Matrix(T1);
+  free_UpperTriangularMatrix(U);
+  free_Matrix(U1);
+  free_TridiagonalMatrix(T);
+  free_Matrix(T1);
 
-  //free_Vector(x);
+  free_Vector(x);
 
-  //free_Vector(outD);
-  //free_Vector(outD1);
-  //free_Vector(outU);
-  //free_Vector(outU1);
-  //free_Vector(outT);
-  //free_Vector(outT1);
+  free_Vector(outD);
+  free_Vector(outD1);
+  free_Vector(outU);
+  free_Vector(outU1);
+  free_Vector(outT);
+  free_Vector(outT1);
 
 }
