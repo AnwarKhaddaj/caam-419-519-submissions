@@ -9,7 +9,7 @@ void free_TridiagonalMatrix(TridiagonalMatrix *A){
   free(A->ptr_l);
 }
 
-TridiagonalMatrix* allocate_TridiagonalMatrix(n){
+TridiagonalMatrix* allocate_TridiagonalMatrix(int n){
   double * ptr_u = malloc(sizeof(double)*(n-1));
   double * ptr_c = malloc(sizeof(double)*n);
   double * ptr_l = malloc(sizeof(double)*(n-1));
