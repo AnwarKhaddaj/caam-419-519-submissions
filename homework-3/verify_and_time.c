@@ -110,7 +110,7 @@ int main(void){
 
 
  start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
    multiply_DiagonalMatrix_Vector(outD, D, x);
  }
  end=clock();
