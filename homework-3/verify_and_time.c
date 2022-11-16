@@ -163,7 +163,7 @@ int main(void){
  //Freeing all allocated memory
 
   free_Matrix(A);
-  free_DiagonalMatrix(D);
+  //free_DiagonalMatrix(D);
   free_Matrix(D1);
   //free_UpperTriangularMatrix(U);
   //free_Matrix(U1);
