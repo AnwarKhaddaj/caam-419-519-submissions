@@ -41,7 +41,8 @@ int main(void){
   TridiagonalMatrix* T= TridiagonalMatrix_copy(A);
   printf("Running Tridiagonal Matrix...\n");
   print_TridiagonalMatrix(T);
-
+    
+//Diagonal matrix using matrix type
   Matrix * D1=allocate_Matrix(n,n);
   for (int i=0;i<D1->n;++i){
     for (int j=0; j<D1->n; ++j){
@@ -53,7 +54,7 @@ int main(void){
         }
     }
   }
-
+//upper triangular matrix using matrix type
   Matrix * U1=allocate_Matrix(n,n);
   for (int i = 0; i < A->n; ++i){
       for (int j = 0; j < A->n; ++j){
@@ -65,7 +66,7 @@ int main(void){
         }
       }
   }
-
+//tridiagonal matrix using matrix type
   Matrix * T1=allocate_Matrix(n,n);
   for (int i = 0; i < A->n; ++i){
         for (int j = 0; j < A->n; ++j){
