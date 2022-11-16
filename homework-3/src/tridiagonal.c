@@ -23,7 +23,7 @@ TridiagonalMatrix* allocate_TridiagonalMatrix(int n){
 }
 
 TridiagonalMatrix* TridiagonalMatrix_copy(Matrix* A){
-    TridiagonalMatrix* copy=allocate_DiagonalMatrix(A->n);
+    TridiagonalMatrix* copy=allocate_TridiagonalMatrix(A->n);
     copy->n=A->n;
     for (int i = 0; i < A->n; ++i){
         for (int j = 0; j < A->n; ++j){
@@ -40,7 +40,7 @@ TridiagonalMatrix* TridiagonalMatrix_copy(Matrix* A){
   return copy;  
 }
 
-void print_TridiagonalMatrix(DiagonalMatrix * A){
+void print_TridiagonalMatrix(TridiagonalMatrix * A){
   printf("A = [\n");
   for (int i = 0; i < A->n; ++i){
     for (int j = 0; j < A->n; ++j){
