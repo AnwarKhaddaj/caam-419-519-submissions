@@ -36,6 +36,7 @@ TridiagonalMatrix* TridiagonalMatrix_copy(Matrix* A){
           else if(i==(j-1)){
             copy->ptr_u[i]=A->ptr[i][j];
           }
+       }
     }
   return copy;  
 }
