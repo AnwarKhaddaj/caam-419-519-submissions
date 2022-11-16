@@ -119,7 +119,7 @@ int main(void){
 
 
  start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
      multiply_Matrix_Vector(outD1, D1, x);
  }
  end=clock();
@@ -127,7 +127,7 @@ int main(void){
  printf("The average run time for matrix_vector multiplication for Diagonal matrix using Matrix type is %1.9f\n", avg_time);
 
   start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
    multiply_UpperTriangularMatrix_Vector(outU, U, x);
  }
  end=clock();
@@ -135,7 +135,7 @@ int main(void){
  printf("The average run time for matrix_vector multiplication for Upper Triangular matrix is %1.9f\n", avg_time);
 
   start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
    multiply_Matrix_Vector(outU1, U1, x);
  }
  end=clock();
@@ -143,7 +143,7 @@ int main(void){
  printf("The average run time for matrix_vector multiplication for Upper Triangular matrix using Matrix type is %1.9f\n", avg_time);
 
   start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
   multiply_TridiagonalMatrix_Vector(outT, T, x);
  }
  end=clock();
@@ -152,7 +152,7 @@ int main(void){
 
  
   start=clock();
- for (i=1;i<100;++i){
+ for (int i=1;i<100;++i){
     multiply_Matrix_Vector(outT1, T1, x);
  }
  end=clock();
