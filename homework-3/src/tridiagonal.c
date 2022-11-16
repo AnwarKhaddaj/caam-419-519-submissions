@@ -30,10 +30,10 @@ TridiagonalMatrix* TridiagonalMatrix_copy(Matrix* A){
           if (i==j){
             copy->ptr_c[i]=A->ptr[i][j];
           }
-          elseif (i==(j+1)){
+          else if (i==(j+1)){
             copy->ptr_l[j]=A->ptr[i][j];
           }
-          elseif(i==(j-1)){
+          else if(i==(j-1)){
             copy->ptr_u[i]=A->ptr[i][j];
           }
     }
@@ -46,10 +46,10 @@ void print_TridiagonalMatrix(DiagonalMatrix * A){
     for (int j = 0; j < A->n; ++j){
       if (i==j){
         printf("%7.2f  ", A->ptr_c[i]);}
-      elseif (i==(j+1)){
+      else if (i==(j+1)){
         printf("%7.2f  ", A->ptr_l[j]);}
       }
-      elseif(i==(j-1)){
+      else if(i==(j-1)){
         printf("%7.2f  ", A->ptr_u[i]);}
       }
       else{
