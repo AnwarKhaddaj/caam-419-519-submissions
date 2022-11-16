@@ -7,6 +7,7 @@
 #include "uppertriangular.h"
 #include <time.h>
 
+//A method to compute the difference between two vectors
 Vector* diff(Vector * x, Vector * y){
     Vector * d=allocate_Vector(x->length);
     for (int j=0; j<x->length; ++j){
