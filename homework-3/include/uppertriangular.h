@@ -12,6 +12,6 @@ typedef struct{
 #endif
 
 void print_UpperTriangularMatrix(UpperTriangularMatrix* A);
-UpperTriangular* UpperTriangular_copy(Matrix* A);
+UpperTriangularMatrix* UpperTriangular_copy(Matrix* A);
 void free_UpperTriangularMatrix(UpperTriangularMatrix* A);
 void multiply_UpperTriangular_Matrix_Vector(Vector* out,UpperTriangularMatrix* A, Vector* x);
