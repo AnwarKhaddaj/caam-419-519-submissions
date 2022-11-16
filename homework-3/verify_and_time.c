@@ -74,7 +74,7 @@ int main(void){
         for (int j = 0; j < A->n; ++j){
 
           if (i==j || i==(j+1) || i==(j-1)){
-            T1->ptr_[i][j]=A->ptr[i][j];
+            T1->ptr[i][j]=A->ptr[i][j];
           }
           else{
             T1->ptr[i][j]=(double)0;
@@ -102,7 +102,7 @@ int main(void){
   multiply_TridiagonalMatrix_Vector(outT, T, x);
   multiply_Matrix_Vector(outT1, T1, x);
 
- printf("The norm of the difference between the two matrix-vector products for Tridiagonal Matrix is %f\n", norm(diff(outT,outT1));
+ printf("The norm of the difference between the two matrix-vector products for Tridiagonal Matrix is %f\n", norm(diff(outT,outT1)));
 
  //Computing Runtimes
  clock_t start, end;
