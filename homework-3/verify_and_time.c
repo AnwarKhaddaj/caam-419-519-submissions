@@ -30,18 +30,18 @@ int main(void){
   }
 
 
-  D=DiagonalMatrix* DiagonalMatrix_copy(A);
-  printf("Running Diagonal Matrix...")
+  DiagonalMatrix* D=DiagonalMatrix_copy(A);
+  printf("Running Diagonal Matrix...");
   print_DiagonalMatrix(D);
   free_DiagonalMatrix(D);
 
-  U=UpperTriangularMatrix* UpperTriangularMatrix_copy(A);
-  printf("Running Upper Triangular Matrix...")
+  UpperTriangularMatrix* U= UpperTriangularMatrix_copy(A);
+  printf("Running Upper Triangular Matrix...");
   print_UpperTriangularMatrix(U);
   free_UpperTriangularMatrix(U);
 
-  T=TridiagonalMatrix* TridiagonalMatrix_copy(A);
-  printf("Running Tridiagonal Matrix...")
+  TridiagonalMatrix* T= TridiagonalMatrix_copy(A);
+  printf("Running Tridiagonal Matrix...");
   print_TridiagonalMatrix(T);
   free_TridiagonalMatrix(T);
 
