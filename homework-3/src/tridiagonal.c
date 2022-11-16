@@ -47,10 +47,10 @@ void print_TridiagonalMatrix(TridiagonalMatrix * A){
       if (i==j){
         printf("%7.2f  ", A->ptr_c[i]);}
       else if (i==(j+1)){
-        printf("%7.2f  ", A->ptr_l[j]);}
+        printf("%7.2f  ", A->ptr_l[j]);
       }
       else if(i==(j-1)){
-        printf("%7.2f  ", A->ptr_u[i]);}
+        printf("%7.2f  ", A->ptr_u[i]);
       }
       else{
       printf("         ");}
