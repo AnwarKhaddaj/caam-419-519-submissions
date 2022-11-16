@@ -16,7 +16,7 @@ Vector* diff(Vector * x, Vector * y){
 }
 
 int main(void){
-    int n = 100;
+    int n = 5;
     Matrix * A = allocate_Matrix(n, n);
     for (int i = 0; i < n; ++i){
         for (int j = 0; j < n; ++j){
