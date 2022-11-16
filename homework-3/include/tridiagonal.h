@@ -13,7 +13,7 @@ typedef struct{
  
 #endif
 
-void print_TridiagonalMatrix(Tridiagonal* A);
+void print_TridiagonalMatrix(TridiagonalMatrix* A);
 Tridiagonal* Tridiagonal_copy(Matrix* A);
 void free_TridiagonalMatrix(TridiagonalMatrix* A);
 void multiply_Tridiagonal_Matrix_Vector(Vector* out,TridiagonalMatrix* A, Vector* x);
