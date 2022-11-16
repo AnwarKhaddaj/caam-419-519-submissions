@@ -7,7 +7,7 @@ void free_UpperTriangularMatrix(UpperTriangularMatrix *A){
   free(A->ptr);  
 }
 
-UpperTriangularMatrix* allocate_UpperTriangularMatrix(n){
+UpperTriangularMatrix* allocate_UpperTriangularMatrix(int n){
   double * ptr = malloc(sizeof(double)*(n*(n+1)/2));
 
   // return a pointer to a new matrix object
@@ -20,7 +20,7 @@ UpperTriangularMatrix* allocate_UpperTriangularMatrix(n){
 UpperTriangularMatrix* UpperTriangularMatrix_copy(Matrix* A){
     UpperTriangularMatrix* copy=allocate_UpperTriangularMatrix(A->n);
     copy->n=A->n;
-    count=0;
+    int count=0;
     for (int i = 0; i < A->n; ++i){
       for (int j = 0; j < A->n; ++j){
         if (i<=j){
@@ -34,7 +34,7 @@ UpperTriangularMatrix* UpperTriangularMatrix_copy(Matrix* A){
 
 void print_UpperTriangularMatrix(UpperTriangularMatrix * A){
   printf("A = [\n");
-  count=0;
+  int count=0;
   for (int i = 0; i < A->n; ++i){
     for (int j = 0; j < A->n; ++j){
       if (i<=j){
