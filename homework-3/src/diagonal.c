@@ -18,21 +18,12 @@ DiagonalMatrix* allocate_DiagonalMatrix(n){
 }
 
 DiagonalMatrix* DiagonalMatrix_copy(Matrix* A){
-  if (A->n < A->m){
     DiagonalMatrix* copy=allocate_DiagonalMatrix(A->n);
     copy->n=A->n;
     for (int i=0;i<A->n;++i){
        copy->ptr[i]=A->ptr[i][i];
     }
-  }
-  else{
-    DiagonalMatrix* copy=allocate_DiagonalMatrix(A->m);
-    copy->n=A->m;
-    for (int i=0;i<A->m;++i){
-       copy->ptr[i]=A->ptr[i][i];
-    }
-  }
-  return copy;  
+    return copy;  
 }
 
 void print_DiagonalMatrix(DiagonalMatrix * A){
