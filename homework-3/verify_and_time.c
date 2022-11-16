@@ -26,7 +26,7 @@ int main(void){
     
   Vector * x = allocate_Vector(n);
   for (int j = 0; j < n; ++j){
-    x->ptr[j] = j;
+    x->ptr[j] = (double)j;
   }
 
 
@@ -49,7 +49,7 @@ int main(void){
   for (int i=0;i<D1->n;++i){
     for (int j=0; j<D1->n; ++j){
         if (i==j){
-            D1->ptr[i][j]=A->ptr[i][j];
+            D1->ptr[i][j]=(double)(A->ptr[i][j]);
         }
         else{
             D1->ptr[i][j]=(double)0;
@@ -61,7 +61,7 @@ int main(void){
   for (int i = 0; i < A->n; ++i){
       for (int j = 0; j < A->n; ++j){
         if (i<=j){
-         U1->ptr[i][j]=A->ptr[i][j];
+         U1->ptr[i][j]=(double)(A->ptr[i][j]);
         }
         else{
          U1->ptr[i][j]=(double)0;
@@ -74,7 +74,7 @@ int main(void){
         for (int j = 0; j < A->n; ++j){
 
           if (i==j || i==(j+1) || i==(j-1)){
-            T1->ptr[i][j]=A->ptr[i][j];
+            T1->ptr[i][j]=(double)(A->ptr[i][j]);
           }
           else{
             T1->ptr[i][j]=(double)0;
