@@ -15,4 +15,4 @@ void print_UpperTriangularMatrix(UpperTriangularMatrix* A);
 UpperTriangularMatrix* UpperTriangularMatrix_copy(Matrix* A);
 UpperTriangularMatrix* allocate_UpperTriangularMatrix(int n);
 void free_UpperTriangularMatrix(UpperTriangularMatrix* A);
-void multiply_UpperTriangular_Matrix_Vector(Vector* out,UpperTriangularMatrix* A, Vector* x);
+void multiply_UpperTriangularMatrix_Vector(Vector* out,UpperTriangularMatrix* A, Vector* x);
