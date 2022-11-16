@@ -13,5 +13,6 @@ typedef struct{
 
 void print_DiagonalMatrix(DiagonalMatrix* A);
 DiagonalMatrix* DiagonalMatrix_copy(Matrix* A);
+DiagonalMatrix* allocate_DiagonalMatrix(int n);
 void free_DiagonalMatrix(DiagonalMatrix* A);
 void multiply_DiagonalMatrix_Vector(Vector* out,DiagonalMatrix* A, Vector* x);
