@@ -50,19 +50,13 @@ void print_UpperTriangularMatrix(UpperTriangularMatrix * A){
 }
 
 void multiply_UpperTriangularMatrix_Vector(Vector* out, UpperTriangularMatrix* A, Vector* x){
-    for (int i=0; i<A->n; ++i){
-        sum=0;
-        count=0;
-        for (int p=0; p<=i; ++p){
-            count+=p;
-        }
-        for(int j=0;j<A->n; ++j){
-            if(i<=j){
-                double A_el=A->ptr[i*n+j-count];
-                double x_j=x->ptr[j];
-                sum+=A_el*x_j;
-            }
-        }
-        out->ptr[i]=sum;
+  int count = 0;
+  for (int i = 0; i < A->n; ++i){
+    for (int j = i; j < A->n; ++j){
+      double A_ij = A->ptr[count];
+      double x_j = x->ptr[j];
+      out->ptr[i] += A_ij * x_j;
+      count++;
     }
+  }
 }
