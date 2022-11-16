@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matrix.h"
-#include "upperdiagonal.h"
+#include "uppertriangular.h"
 
 void free_UpperTriangularMatrix(UpperTriangularMatrix *A){
   free(A->ptr);  
