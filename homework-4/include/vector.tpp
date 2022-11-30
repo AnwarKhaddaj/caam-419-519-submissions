@@ -124,11 +124,11 @@ Vector<T> operator+(const Vector<T> &x, const Vector<T> &y){
 template <typename T> 
 Vector<T> operator-(const Vector<T> &x, const Vector<T> &y){
     if (x.length() == y.length()) {
-        Vector<T> sum(x.length()) ;  
+        Vector<T> subt(x.length()) ;  
         for (int i = 0; i < x.length(); ++i) {
-                (sum.getptr())[i] = (x.getptr())[i]-(y.getptr())[i];
+                (subt.getptr())[i] = (x.getptr())[i]-(y.getptr())[i];
         }
-        return sum;
+        return subt;
 }
 else {
 	throw std::domain_error("Error: incompatible vector dimensions");
@@ -138,13 +138,13 @@ else {
 template <typename T>
 Matrix<T> operator*(const Vector<T> &x, const Matrix<T> &y){
    if (y.num_rows() == 1) {
-       Matrix<T> sum(x.length(), y.num_columns()) ; 	
+       Matrix<T> mult(x.length(), y.num_columns()) ; 	
          for (int i = 0; i < x.length(); ++i) {
            	for (int j = 0; j < y.num_columns(); ++j) {
-		   (sum.getptr())[i][j]=(x.getptr())[i]*(y.getptr())[0][j];
+		   (mult.getptr())[i][j]=(x.getptr())[i]*(y.getptr())[0][j];
              }
          }
-         return sum;
+         return mult;
    }
   else {
 	throw std::domain_error("Error: incompatible vector and matrix dimensions");}
@@ -153,17 +153,15 @@ Matrix<T> operator*(const Vector<T> &x, const Matrix<T> &y){
 template <typename T>
 Vector<T> operator*(const Matrix<T> &x, const Vector<T> &y){
    if (x.num_columns() == y.length()) {
-       Vector<T> sum(x.num_rows()) ; 	
-	
-	  T t=(T)0;
+       Vector<T> mult(x.num_rows()) ; 	
          for (int i = 0; i < x.num_rows(); ++i) {
             T Sum = (T) 0;
            	for (int j = 0; j < x.num_columns(); ++j) {
 		   Sum += (x.getptr())[i][j]*(y.getptr())[j];
              }
-             (sum.getptr())[i] = Sum;
+             (mult.getptr())[i] = Sum;
          }
-         return sum;
+         return mult;
 	}
        
 
