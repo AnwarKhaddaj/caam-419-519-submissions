@@ -27,7 +27,6 @@ template <typename T> Matrix<T> operator-(T c, const Matrix<T> &x);
 template <typename T> Matrix<T> operator*(const Matrix<T> &x, T c);
 template <typename T> Matrix<T> operator*(T c, const Matrix<T> &x);
 template <typename T> Matrix<T> operator/(const Matrix<T> &x, T c);
-
 template <typename T> Matrix<T> operator+(const Matrix<T> &x, const Matrix<T> &y);
 template <typename T> Matrix<T> operator-(const Matrix<T> &x, const Matrix<T> &y);
 template <typename T> Matrix<T> operator*(const Matrix<T> &x, const Matrix<T> &y);
