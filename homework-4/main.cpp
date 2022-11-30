@@ -9,8 +9,6 @@ int main(void){
   Matrix<double> C(6,5);
   Matrix<double> D(1,5);
   Matrix<double> E(6,5);
-
-  
   Vector<double> z(6);
 
   for (int i = 0; i < A.num_rows(); ++i){
@@ -28,7 +26,6 @@ int main(void){
       C[i][j] = (double) i * j;
     }
   }
-    
   Vector<double> x(5);
   for (int i = 0; i < x.length(); ++i){
     x[i] = i;
