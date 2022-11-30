@@ -2,8 +2,6 @@
 #include "vector.h"
 #include "matrix.h"
 using namespace std;
-//#include "matrix.tpp"
-//#include "vector.tpp"
 	      
 int main(void){
   Matrix<double> A(6,4);
@@ -42,57 +40,21 @@ int main(void){
 
   double a = 1.5;
   double b = 3.5;
-  // z.print();
-  // z = y;
-  // z.print();
+  std::cout << "Matrix A is: << std::endl;
   A.print();
+  std::cout << "Matrix B is: << std::endl;
   B.print();
+  std::cout << "Matrix C is: << std::endl;
   C.print();
+  std::cout << "Vector x is: << std::endl;
   x.print();
+  std::cout << "Vector y is: << std::endl;
   y.print();
   std::cout << a << std::endl;
   z=((A*B + C) * x + a * y);
-  //z.print();
-  z = 3.0*z - (y - 1.0) / 2.0 + 0.5;
+  std::cout << "First computation of vector z is: << std::endl;
   z.print();
-  E = C;
-  E.print();
-  // (3.0*((A*B + C) * x + a * y)-(y-1.0)/2.0+0.5).print();
-  //z.print();
-  //C.print();
-  //x.print();
-  // E = x*D;
-  // E.print();
-
-  //(C*x).print();
-
-  // A.print();
-  // B.print();
-  // D = A*B;
-  // D.print();
-
-  //a+A;
-  //B+b;
-  // A-a;
-  // A.print();
-  // A*b;
-  // A.print();
-  // A/3.0;
-  // A.print();
-  // //D-3;
-  // x-a;
-  // x.print();
-  // x*b;
-  // x.print();
-  // x/3.0;
-  // x.print();
-
-  //A+B;
-  // A.print();
-  // D = A-A;
-  // D.print();
-  // //A+B;
-
-  // x=x+x;
-  // x.print();
+  z = 3.0*z - (y - 1.0) / 2.0 + 0.5;
+  std::cout << "Second computation of vector z is: << std::endl;
+  z.print();
 }
