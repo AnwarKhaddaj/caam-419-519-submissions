@@ -21,7 +21,7 @@ int main(void){
       B[i][j] = (double) 1 / (i + j + 1);
     }
   }
-  B=A;
+  B=A+A;
   B.print();
   for (int i = 0; i < C.num_rows(); ++i){
     for (int j = 0; j < C.num_columns(); ++j){
