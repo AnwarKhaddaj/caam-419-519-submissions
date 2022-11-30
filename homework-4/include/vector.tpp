@@ -42,86 +42,67 @@ T & Vector<T>::operator[](const int i) const {
   return ptr_[i];
 }
 
-// template <typename T>
-// void Vector<T>::operator=(const Vector<T> &x) {
-//     if (this->length_ == x.length()) {
-        
-//             for (int j = 0; j < this->length_; ++j) {
-//                 (this->getptr())[j] = (x.getptr())[j];
-//             }
-        
-//     }
-//     else {throw std::domain_error("Error: incompatible vector dimensions");}
-// }
-
+//overloading = operator
 template <typename T>
 Vector<T> Vector<T>::operator=(const Vector<T> &x) {
-    if (this->length_ == x.length()) {
-        //Vector<T> sum(x.length()) ;  
+    if (this->length_ == x.length()) { 
             for (int j = 0; j < x.length(); ++j) {
                 (this->getptr())[j] = (x.getptr())[j];
-                //(sum.getptr())[j] = 3.0;
-                //(sum.getptr())[j] = (x.getptr())[j];
             }
-            //this = sum;
         return *this;
      }
     else {throw std::domain_error("Error: incompatible vector dimensions");}
 }
 
+//overloading + operator for vector-scalar addition
 template <typename T>
 Vector<T> operator+(const Vector<T> &x, T c) {
-    Vector<T> sum(x.length());
-            for (int j = 0; j < x.length(); ++j) {
-                (sum.getptr())[j] = (x.getptr())[j]+c;
-            }
-            return sum;
-        
+    Vector<T> add(x.length());
+    for (int j = 0; j < x.length(); ++j) {
+        (add.getptr())[j] = (x.getptr())[j]+c;
+    }
+    return add;   
 }
-
 template <typename T>
 Vector<T> operator+(T c, const Vector<T> &x) {
     return x+c;
         
 }
-
+//overloading - operator for vector-scalar subtraction
 template <typename T>
 Vector<T> operator-(const Vector<T> &x, T c) {
-    Vector<T> sum(x.length());
-            for (int j = 0; j < x.length(); ++j) {
-                (sum.getptr())[j] = (x.getptr())[j]-c;
-            }
-        return sum;
+    Vector<T> diff(x.length());
+    for (int j = 0; j < x.length(); ++j) {
+        (diff.getptr())[j] = (x.getptr())[j]-c;
+    }
+    return diff;
 }
-
 template <typename T>
 Vector<T> operator-(T c, const Vector<T> &x) {
     return x-c;
         
 }
-
+//overloading * operator for vector-scalar multiplication
 template <typename T>
 Vector<T> operator*(const Vector<T> &x, T c) {
-    Vector<T> sum(x.length());
-            for (int j = 0; j < x.length(); ++j) {
-                (sum.getptr())[j] = (x.getptr())[j]*c;
-            }
-        return sum;
+    Vector<T> mult(x.length());
+    for (int j = 0; j < x.length(); ++j) {
+        (mult.getptr())[j] = (x.getptr())[j]*c;
+    }
+    return mult;
 }
-
 template <typename T>
 Vector<T> operator*(T c, const Vector<T> &x) {
-    return x*c;
-        
+    return x*c;     
 }
-
+//overloading / operator for vector-scalar division
 template <typename T>
 Vector<T> operator/(const Vector<T> &x, T c) {
-    Vector<T> sum(x.length());
-            for (int j = 0; j < x.length(); ++j) {
-                (sum.getptr())[j] = (x.getptr())[j]/c;
-            }
-        return sum;
+    Vector<T> div(x.length());
+    for (int j = 0; j < x.length(); ++j) {
+        (div.getptr())[j] = (x.getptr())[j]/c;
+    }
+    return div;
 }
 
 template <typename T> 
