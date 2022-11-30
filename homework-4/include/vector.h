@@ -2,8 +2,6 @@
 #define _VECTOR
 #include "matrix.h"
 
-
-
 template <typename T>
 class Vector{
 public:
@@ -30,8 +28,6 @@ template <typename T> Vector<T> operator-(T c, const Vector<T> &x);
 template <typename T> Vector<T> operator*(const Vector<T> &x, T c);
 template <typename T> Vector<T> operator*(T c, const Vector<T> &x);
 template <typename T> Vector<T> operator/(const Vector<T> &x, T c);
-
-//template <typename T> void operator+(const Vector<T> &x, T c);
 template <typename T> Vector<T> operator+(const Vector<T> &x, const Vector<T> &y);
 template <typename T> Vector<T> operator-(const Vector<T> &x, const Vector<T> &y);
 template <typename T> Matrix<T> operator*(const Vector<T> &x, const Matrix<T> &y);
