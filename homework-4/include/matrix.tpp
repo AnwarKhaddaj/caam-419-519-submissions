@@ -49,23 +49,6 @@ void Matrix<T>::print(){
 //overloading = operator
 template <typename T>
 Matrix<T> Matrix<T>::operator=(const Matrix<T> &x) {
-    if (this->num_rows() == x.num_rows() && this->num_columns() == x.num_columns()) {
-        Matrix<T> sum(x.num_rows(), x.num_columns()) ; 
-        for (int i = 0; i < x.num_rows(); ++i) {
-            for (int j = 0; j < x.num_columns(); ++j) {
-                (this->getptr())[i][j] = (x.getptr())[i][j];
-            }
-        }
-    return *this;
-    }
-    else {
-	    throw std::domain_error("Error: incompatible matrix dimensions");
-    }
-}
-
-
-template <typename T>
-Matrix<T> Matrix<T>::operator=(const Matrix<T> &x) {
 	delete (this->_ptr[0]);
 	delete (this->_ptr);
 	this->_rows=x.num_rows();
