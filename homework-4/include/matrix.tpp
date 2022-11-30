@@ -154,9 +154,7 @@ Matrix<T> operator-(const Matrix<T> &x, const Matrix<T> &y){
 template <typename T>
 Matrix<T> operator*(const Matrix<T> &x, const Matrix<T> &y){
    if (x.num_columns() == y.num_rows()) {
-       Matrix<T> mult(x.num_rows(), y.num_columns()) ; 	
-	
-	  T t=(T)0;
+       Matrix<T> mult(x.num_rows(), y.num_columns()) ; 
          for (int i = 0; i < x.num_rows(); ++i) {
            	for (int j = 0; j < y.num_columns(); ++j) {
 		   T Sum = (T) 0;
