@@ -7,8 +7,6 @@ int main(void){
   Matrix<double> A(6,4);
   Matrix<double> B(4,5);
   Matrix<double> C(6,5);
-  Matrix<double> D(1,5);
-  Matrix<double> E(6,5);
   Vector<double> z(5);
 
   for (int i = 0; i < A.num_rows(); ++i){
@@ -36,7 +34,6 @@ int main(void){
   }
 
   double a = 1.5;
-  double b = 3.5;
   std::cout << "Matrix A is:" << std::endl;
   A.print();
   std::cout << "Matrix B is:" << std::endl;
