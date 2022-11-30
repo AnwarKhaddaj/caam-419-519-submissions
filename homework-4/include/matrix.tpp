@@ -46,19 +46,41 @@ void Matrix<T>::print(){
   }
   std::cout << "]" << std::endl;    
 }
+
 //overloading = operator
+//template <typename T>
+//Matrix<T> Matrix<T>::operator=(const Matrix<T> &x) {
+//	delete (this->_ptr[0]);
+//	delete (this->_ptr);
+//	this->_rows=x.num_rows();
+	//this->_columns=x.num_columns();
+	//this->_ptr = new T*[_rows]; 
+        //this->_ptr[0] = new T[_rows * _columns];
+	//this->_ptr=(T**) malloc(sizeof(T)*x.num_rows());
+        //this->_ptr[0]=(T*) malloc(sizeof(T)*x.num_rows()*x.num_columns());
+	//for (int i = 1; i < _rows; ++i) {
+    	//this->_ptr[i] = this->_ptr[0] + i * _columns;
+  	//}
+        //for (int i = 0; i < x.num_rows(); ++i) {
+          //  for (int j = 0; j < x.num_columns(); ++j) {
+        //        (this->_ptr)[i][j] = (x.getptr())[i][j];
+      //      }
+    //    }
+  //  return *this;
+//}
+
 template <typename T>
 Matrix<T> Matrix<T>::operator=(const Matrix<T> &x) {
 	delete (this->_ptr[0]);
 	delete (this->_ptr);
 	this->_rows=x.num_rows();
 	this->_columns=x.num_columns();
-	this->_ptr = new T*[_rows]; 
-        this->_ptr[0] = new T[_rows * _columns];
+	this->_ptr = new T*[x.num_rows]; 
+        this->_ptr[0] = new T[_rows * x.num_columns];
 	//this->_ptr=(T**) malloc(sizeof(T)*x.num_rows());
         //this->_ptr[0]=(T*) malloc(sizeof(T)*x.num_rows()*x.num_columns());
-	for (int i = 1; i < _rows; ++i) {
-    	this->_ptr[i] = this->_ptr[0] + i * _columns;
+	for (int i = 1; i < x.num_rows; ++i) {
+    	this->_ptr[i] = this->_ptr[0] + i * x.num_columns;
   	}
         for (int i = 0; i < x.num_rows(); ++i) {
             for (int j = 0; j < x.num_columns(); ++j) {
