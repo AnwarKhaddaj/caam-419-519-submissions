@@ -43,17 +43,28 @@ T & Vector<T>::operator[](const int i) const {
 }
 
 //overloading = operator
+//template <typename T>
+//Vector<T> Vector<T>::operator=(const Vector<T> &x) {
+//    if (this->length_ == x.length()) { 
+ //           for (int j = 0; j < x.length(); ++j) {
+   //             (this->getptr())[j] = (x.getptr())[j];
+     //       }
+      //  return *this;
+     //}
+    //else {
+	//    throw std::domain_error("Error: incompatible vector dimensions");
+  //  }
+//}
+
 template <typename T>
 Vector<T> Vector<T>::operator=(const Vector<T> &x) {
-    if (this->length_ == x.length()) { 
-            for (int j = 0; j < x.length(); ++j) {
-                (this->getptr())[j] = (x.getptr())[j];
-            }
-        return *this;
-     }
-    else {
-	    throw std::domain_error("Error: incompatible vector dimensions");
-    }
+delete this->ptr_;
+this->length=x.length();
+this->ptr_=(T*) malloc(sizeof(T)*x.length());
+  for (int j = 0; j < x.length(); ++j) {
+         (this->ptr_)[j] = (x.getptr())[j];
+  }
+  return *this;
 }
 
 //overloading + operator for vector-scalar addition
