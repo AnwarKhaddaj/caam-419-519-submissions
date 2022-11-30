@@ -12,7 +12,6 @@ public:
   int length(void) const{ return length_; }  
   void print();
 
-  // for indexing (e.g., x[i] = 1.0);  
   T & operator[](const int i) const; 
   T * getptr() const {return ptr_;};
   Vector<T> operator=(const Vector<T> &x);
