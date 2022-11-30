@@ -9,7 +9,7 @@ int main(void){
   Matrix<double> C(6,5);
   Matrix<double> D(1,5);
   Matrix<double> E(6,5);
-  Vector<double> z(6);
+  Vector<double> z(5);
 
   for (int i = 0; i < A.num_rows(); ++i){
     for (int j = 0; j < A.num_columns(); ++j){
