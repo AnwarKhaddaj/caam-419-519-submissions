@@ -21,6 +21,8 @@ int main(void){
       B[i][j] = (double) 1 / (i + j + 1);
     }
   }
+  B=A;
+  B.print();
   for (int i = 0; i < C.num_rows(); ++i){
     for (int j = 0; j < C.num_columns(); ++j){
       C[i][j] = (double) i * j;
@@ -47,7 +49,7 @@ int main(void){
   x.print();
   std::cout << "Vector y is:" << std::endl;
   y.print();
-  std::cout << a << std::endl;
+  std::cout << "Scalar a is: " << a << std::endl;
   z=((A*B + C) * x + a * y);
   std::cout << "First computation of vector z is:" << std::endl;
   z.print();
