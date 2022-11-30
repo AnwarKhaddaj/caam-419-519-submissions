@@ -40,21 +40,21 @@ int main(void){
 
   double a = 1.5;
   double b = 3.5;
-  std::cout << "Matrix A is: << std::endl;
+  std::cout << "Matrix A is:" << std::endl;
   A.print();
-  std::cout << "Matrix B is: << std::endl;
+  std::cout << "Matrix B is:" << std::endl;
   B.print();
-  std::cout << "Matrix C is: << std::endl;
+  std::cout << "Matrix C is:" << std::endl;
   C.print();
-  std::cout << "Vector x is: << std::endl;
+  std::cout << "Vector x is:" << std::endl;
   x.print();
-  std::cout << "Vector y is: << std::endl;
+  std::cout << "Vector y is:" << std::endl;
   y.print();
   std::cout << a << std::endl;
   z=((A*B + C) * x + a * y);
-  std::cout << "First computation of vector z is: << std::endl;
+  std::cout << "First computation of vector z is:" << std::endl;
   z.print();
   z = 3.0*z - (y - 1.0) / 2.0 + 0.5;
-  std::cout << "Second computation of vector z is: << std::endl;
+  std::cout << "Second computation of vector z is:" << std::endl;
   z.print();
 }
