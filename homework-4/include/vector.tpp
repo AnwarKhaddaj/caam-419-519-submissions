@@ -126,10 +126,10 @@ Vector<T> operator-(const Vector<T> &x, const Vector<T> &y){
                 (subt.getptr())[i] = (x.getptr())[i]-(y.getptr())[i];
         }
         return subt;
-}
-else {
+   }
+   else {
 	throw std::domain_error("Error: incompatible vector dimensions");
-}
+   }
 }
 //overloading * operator for vector-matrix multiplication
 template <typename T>
@@ -143,9 +143,10 @@ Matrix<T> operator*(const Vector<T> &x, const Matrix<T> &y){
          }
          return mult;
    }
-  else {
-	throw std::domain_error("Error: incompatible vector and matrix dimensions");}
+   else {
+	throw std::domain_error("Error: incompatible vector and matrix dimensions");
    }
+  }
 
 template <typename T>
 Vector<T> operator*(const Matrix<T> &x, const Vector<T> &y){
@@ -160,7 +161,7 @@ Vector<T> operator*(const Matrix<T> &x, const Vector<T> &y){
          }
          return mult;
 	}
-       
-
-else {throw std::domain_error("Error: incompatible vector and matrix dimensions");}
+   else {
+	   throw std::domain_error("Error: incompatible vector and matrix dimensions");
+   }
 }
