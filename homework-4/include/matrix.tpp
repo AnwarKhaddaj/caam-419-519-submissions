@@ -77,7 +77,7 @@ template <typename T>
 Matrix<T> operator+(T c,Matrix<T> &x) {
    return x+c;
 }
-//overloading - operator for scalar-matrix addition
+//overloading - operator for scalar-matrix subtraction
 template <typename T>
 Matrix<T> operator-(Matrix<T> &x, T c) {
 Matrix<T> diff(x.num_rows(),x.num_columns());
@@ -92,7 +92,7 @@ template <typename T>
 Matrix<T> operator-(T c, Matrix<T> &x) {
    return x-c;
 }
-//overloading * operator for scalar-matrix addition
+//overloading * operator for scalar-matrix multiplication
 template <typename T>
 Matrix<T> operator*(Matrix<T> &x, T c) {
 Matrix<T> mult(x.num_rows(),x.num_columns());
@@ -107,7 +107,7 @@ template <typename T>
 Matrix<T> operator*(T c, Matrix<T> &x) {
    return x*c;
 }
-//overloading / operator for scalar-matrix addition
+//overloading / operator for scalar-matrix division
 template <typename T>
 Matrix<T>operator/(Matrix<T> &x, T c) {
 Matrix<T> div(x.num_rows(),x.num_columns());
@@ -138,13 +138,13 @@ Matrix<T> operator+(const Matrix<T> &x, const Matrix<T> &y){
 template <typename T>
 Matrix<T> operator-(const Matrix<T> &x, const Matrix<T> &y){
    if (x.num_rows() == y.num_rows() && x.num_columns() == y.num_columns()) {
-       Matrix<T> sum(x.num_rows(), x.num_columns()) ; 
+       Matrix<T> diff(x.num_rows(), x.num_columns()) ; 
        for (int i = 0; i < x.num_rows(); ++i) {
            for (int j = 0; j < x.num_columns(); ++j) {
-               (sum.getptr())[i][j] = (x.getptr())[i][j]-(y.getptr())[i][j];
+               (diff.getptr())[i][j] = (x.getptr())[i][j]-(y.getptr())[i][j];
            }
        }
-       return sum;
+       return diff;
 }
     else {
 	throw std::domain_error("Error: incompatible matrix dimensions");
@@ -154,7 +154,7 @@ Matrix<T> operator-(const Matrix<T> &x, const Matrix<T> &y){
 template <typename T>
 Matrix<T> operator*(const Matrix<T> &x, const Matrix<T> &y){
    if (x.num_columns() == y.num_rows()) {
-       Matrix<T> sum(x.num_rows(), y.num_columns()) ; 	
+       Matrix<T> mult(x.num_rows(), y.num_columns()) ; 	
 	
 	  T t=(T)0;
          for (int i = 0; i < x.num_rows(); ++i) {
@@ -163,10 +163,10 @@ Matrix<T> operator*(const Matrix<T> &x, const Matrix<T> &y){
 		   for(int k=0; k<x.num_columns();++k){
 			Sum += (x.getptr())[i][k]*(y.getptr())[k][j];
 		   }
-		   (sum.getptr())[i][j]=Sum;
+		   (mult.getptr())[i][j]=Sum;
              }
          }
-         return sum;
+         return mult;
     }
     else {
 	    throw std::domain_error("Error: incompatible matrix dimensions");
