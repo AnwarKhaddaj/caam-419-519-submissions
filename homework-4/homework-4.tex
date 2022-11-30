@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{layout}
+\usepackage{float}
+\usepackage{listings}
+
+\title{CAAM 519, Homework $\#4$}
+\author{\texttt{ask15}}
+\date{November 30, 2022}
+\begin{document}
+\maketitle
+
+\section{main.cpp file and its output}
+\subsection{Main.cpp file}
+\begin{lstlisting}
+  #include <iostream>
+  #include ``vector.h''
+  #include ``matrix.h''
+  using namespace std;
+
+  int main(void){
+    Matrix<double> A(6,4);
+    Matrix<double> B(4,5);
+    Matrix<double> C(6,5);
+    Vector<double> z(5);
+
+    for (int i = 0; i < A.num_rows(); ++i){
+      for (int j = 0; j < A.num_columns(); ++j){
+        A[i][j] = (double) (i+j);
+      }
+    }
+    for (int i = 0; i < B.num_rows(); ++i){
+      for (int j = 0; j < B.num_columns(); ++j){
+        B[i][j] = (double) 1 / (i + j + 1);
+      }
+    }
+    for (int i = 0; i < C.num_rows(); ++i){
+      for (int j = 0; j < C.num_columns(); ++j){
+        C[i][j] = (double) i * j;
+      }
+    }
+    Vector<double> x(5);
+    for (int i = 0; i < x.length(); ++i){
+      x[i] = i;
+    }
+    Vector<double> y(6);
+    for (int i = 0; i < y.length(); ++i){
+      y[i] = 1 - i;
+    }
+
+    double a = 1.5;
+    std::cout << ``Matrix A is:'' << std::endl;
+    A.print();
+    std::cout << ``Matrix B is:'' << std::endl;
+    B.print();
+    std::cout << ``Matrix C is:'' << std::endl;
+    C.print();
+    std::cout << ``Vector x is:'' << std::endl;
+    x.print();
+    std::cout << ``Vector y is:'' << std::endl;
+    y.print();
+    std::cout << ``Scalar a is: `` << a << std::endl;
+    z=((A*B + C) * x + a * y);
+    std::cout << ``First computation of vector z is:'' << std::endl;
+    z.print();
+    z = 3.0*z - (y - 1.0) / 2.0 + 0.5;
+    std::cout << ``Second computation of vector z is:'' << std::endl;
+    z.print();
+  }
+\end{lstlisting}
+\subsection{Commands to get the output}
+\begin{lstlisting}
+  g++ --std=c++11 -o main -I./include main.cpp
+  ./main
+\end{lstlisting}
+\subsection{Output of main.cpp file}
+\begin{lstlisting}
+  Matrix A is:
+  Matrix = [
+    0 1 2 3
+    1 2 3 4
+    2 3 4 5
+    3 4 5 6
+    4 5 6 7
+    5 6 7 8
+  ]
+  Matrix B is:
+  Matrix = [
+    1 0.5 0.333333 0.25 0.2
+    0.5 0.333333 0.25 0.2 0.166667
+    0.333333 0.25 0.2 0.166667 0.142857
+    0.25 0.2 0.166667 0.142857 0.125
+  ]
+  Matrix C is:
+  Matrix = [
+    0 0 0 0 0
+    0 1 2 3 4
+    0 2 4 6 8
+    0 3 6 9 12
+    0 4 8 12 16
+    0 5 10 15 20
+  ]
+  Vector x is:
+  Vector = [
+    0
+    1
+    2
+    3
+    4
+  ]
+  Vector y is:
+  Vector = [
+    1
+    0
+    -1
+    -2
+    -3
+    -4
+  ]
+  Scalar a is: 1.5
+  First computation of vector z is:
+  Vector = [
+    11.4286
+    47.9286
+    84.4286
+    120.929
+    157.429
+    193.929
+  ]
+  Second computation of vector z is:
+  Vector = [
+    34.7857
+    144.786
+    254.786
+    364.786
+    474.786
+    584.786
+  ]
+\end{lstlisting}
+\section{How to overload += operators}
+It is very similar to the combination of overloading operators + and then = all in one method.First, we create a vector of certain matching length and then add the corresponding elements. After that, we do the same as we did for overloading the = operator.\\
+This method is more efficient as it would cost less than storing a new vector and then returning this vector before resizing it and setting it equal to another vector.
+\end{document}
