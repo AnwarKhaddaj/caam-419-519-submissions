@@ -164,7 +164,7 @@ Matrix<T> operator*(const Matrix<T> &x, const Matrix<T> &y){
          for (int i = 0; i < x.num_rows(); ++i) {
            	for (int j = 0; j < y.num_columns(); ++j) {
 		   T Sum = (T) 0;
-		   for(int k=0; k<x.num_columns();++k){
+		   for(int k = 0; k< x.num_columns(); ++k){
 			Sum += (x.getptr())[i][k]*(y.getptr())[k][j];
 		   }
 		   (mult.getptr())[i][j]=Sum;
