@@ -48,7 +48,7 @@ int main(void){
   z=((A*B + C) * x + a * y);
   std::cout << "First computation of vector z is:" << std::endl;
   z.print();
-  z = 3.0*z - (y - 1.0) / 2.0 + 0.5;
+  z = (3.0*z - (y - 1.0) / 2.0 + 0.5);
   std::cout << "Second computation of vector z is:" << std::endl;
   z.print();
 }
